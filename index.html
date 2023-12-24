@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navidad Morada</title>
+    <style>
+        body {
+            background-color: #966969; /* Color morado claro de fondo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #gift {
+            cursor: pointer;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-image: url('gift1.png'); /* Reemplaza 'gift.png' con tu imagen de regalo */
+            background-size: cover;
+            transition: transform 0.3s ease-in-out; /* Efecto de transición al hacer hover */
+        }
+
+        #gift:hover {
+            transform: scale(1.1); /* Efecto de escala al hacer hover */
+        }
+
+        #gift-box {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff; /* Color de fondo del cuadro de regalo */
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+        }
+
+        #gift-box p {
+            margin: 0;
+            color: #b76e6e; /* Color morado claro del texto */
+        }
+
+        #close-button {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #b76eaf; /* Color morado claro del botón de cierre */
+        }
+    </style>
+</head>
+<body>
+    <div id="gift"></div>
+
+    <div id="gift-box">
+        <span id="close-button">&times;</span>
+        <p>¡Feliz Navidad, Mi Amor!</p>
+        <p>Te amo demasiado, y espero poder hacer un regalo más bonito para el próximo año, pero el esfuerzo lo hice jijiji.</p>
+        <p>Espero que pases una hermosa navidad, mi Mimi.</p>
+    </div>
+
+    <script>
+        const gift = document.getElementById('gift');
+        const giftBox = document.getElementById('gift-box');
+        const closeButton = document.getElementById('close-button');
+
+        gift.addEventListener('click', () => {
+            giftBox.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+            giftBox.style.display = 'none';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (event.target !== gift && event.target !== giftBox && event.target !== closeButton) {
+                giftBox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
